@@ -7,4 +7,6 @@ export const mainInitialState: mainSliceType = {
   nameInput: '',
   genderInput: '',
   statusInput: '',
+  pagesCount: 0,
+  currentPage: 1
 };

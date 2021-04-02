@@ -7,8 +7,8 @@ import { StateType } from "../root-reducer";
 
 export const FetchItemsThunk = createAsyncThunk(
     "fetchItems",
-    async ({nameInput, genderInput , statusInput}: {nameInput: string, genderInput: string , statusInput: string}, thunkAPI) => {
-      const response = await FetchItems({nameInput, genderInput , statusInput});
+    async ({nameInput, genderInput , statusInput, currentPage}: {nameInput: string, genderInput: string , statusInput: string, currentPage: number}, thunkAPI) => {
+      const response = await FetchItems({nameInput, genderInput , statusInput, currentPage});
       return response;
     }
   );
@@ -25,6 +25,7 @@ export const mainSlice = createSlice({
       (state, action: PayloadAction<responseType>) => {
         state.isLoading = false;
         state.items = action.payload.results
+        state.pagesCount = action.payload.info.pages
       }
     );
     builder.addCase(FetchItemsThunk.rejected, (state, action) => {
@@ -36,7 +37,8 @@ export const mainSlice = createSlice({
 
 export const {
   actions: {
-    setInputs: setInputsAC
+    setInputs: setInputsAC,
+    setCurrentPage: setCurrentPageAC
   },
 } = mainSlice;
 
@@ -47,3 +49,6 @@ export const isLoadingSelector = (state: StateType) => state.main.isLoading;
 export const nameInputSelector = (state: StateType) => state.main.nameInput;
 export const genderInputSelector = (state: StateType) => state.main.genderInput;
 export const statusInputSelector = (state: StateType) => state.main.statusInput;
+
+export const pagesCountSelector = (state: StateType) => state.main.pagesCount;
+export const currentPageSelector = (state: StateType) => state.main.currentPage;

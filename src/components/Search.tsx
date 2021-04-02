@@ -25,11 +25,22 @@ export const Search = () => {
                 </div>
                 <div className="searchInput filterByGenderWrapper">
                     <label htmlFor="filterByGender">Фильтр по полу:</label>
-                    <input type="search" id='filterByGender' name="filterByGender" placeholder='Укажите пол' onChange={(event) => setGenderInput(event.target.value)} value={genderInput}/>
+                    <select id='filterByGender' name="filterByGender" placeholder='Укажите пол' onChange={(event) => setGenderInput(event.target.value)} value={genderInput}>
+                        <option value="">All</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="genderless">Genderless</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
                 </div>
                 <div className="searchInput filterByStatusWrapper">
                     <label htmlFor="filterByStatus">Фильтр по статусу:</label>
-                    <input type="search" id='filterByStatus' name="filterByStatus" placeholder='Укажите статус' onChange={(event) => setStatusInput(event.target.value)} value={statusInput}/>
+                    <select id='filterByStatus' name="filterByStatus" placeholder='Укажите статус' onChange={(event) => setStatusInput(event.target.value)} value={statusInput}>
+                        <option value="">All</option>
+                        <option value="alive">Alive</option>
+                        <option value="dead">Dead</option>
+                        <option value="unknown">Unknown</option>
+                    </select>
                 </div>    
             </div>
             <button type='submit' className='searchButton' onClick={searchButtonOnClick}>Искать</button>

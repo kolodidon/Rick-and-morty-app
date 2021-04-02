@@ -9,7 +9,10 @@ import {
   nameInputSelector,
   genderInputSelector,
   statusInputSelector,
-  FetchItemsThunk,
+  pagesCountSelector,
+  currentPageSelector,
+  setCurrentPageAC,
+  FetchItemsThunk
 } from "../store/main/main.slice";
 
 export const List = () => {
@@ -23,33 +26,52 @@ export const List = () => {
   const genderInput = useSelector(genderInputSelector);
   const statusInput = useSelector(statusInputSelector);
 
+  const pagesCount = useSelector(pagesCountSelector);
+  const currentPage = useSelector(currentPageSelector);
+
   React.useEffect(() => {
-    dispatch(FetchItemsThunk({ nameInput, genderInput, statusInput }));
-  }, [nameInput, genderInput, statusInput, dispatch]);
+    dispatch(FetchItemsThunk({ nameInput, genderInput, statusInput, currentPage }));
+  }, [nameInput, genderInput, statusInput, currentPage, dispatch]);
+
+  let pages: number[] = [];
+  for (let i = 1; i <= pagesCount; i++) {
+    pages.push(i);
+  }
 
   return (
     <div className="section list">
       <h2 className="sectionHeader">Список</h2>
 
-      {
-        nameInput || genderInput || statusInput 
-            ? <div className="section filters">
-                <h3 className="sectionHeader">Фильтры</h3>
-                {nameInput ? <div className="filterItem">Имя: {nameInput}</div> : ""}
-                {genderInput ? <div className="filterItem">Пол: {genderInput}</div> : ""}
-                {statusInput ? <div className="filterItem">Статус: {statusInput}</div>: ""}
-            </div>   
-            : ""
-      }
+      {nameInput || genderInput || statusInput ? (
+        <div className="section filters">
+          <h3 className="sectionHeader">Фильтры</h3>
+          {nameInput ? <div className="filterItem">Имя: {nameInput}</div> : ""}
+          {genderInput ? (
+            <div className="filterItem">Пол: {genderInput}</div>
+          ) : (
+            ""
+          )}
+          {statusInput ? (
+            <div className="filterItem">Статус: {statusInput}</div>
+          ) : (
+            ""
+          )}
+        </div>
+      ) : (
+        ""
+      )}
 
-      <div className="section pagination">
-        <h3 className="sectionHeader">Пагинация</h3>
-        <div className="paginationItem">1</div>
-        <div className="paginationItem">2</div>
-        <div className="paginationItem">3</div>
-        <div className="paginationItem">4</div>
-        <div className="paginationItem">50</div>
-      </div>
+      {pagesCount ? (
+        <div className="section pagination">
+          <h3 className="sectionHeader">Пагинация</h3>
+          {
+              //@ts-ignore
+              pages.map((e) => <button onClick={() => dispatch(setCurrentPageAC(e))} key={e} className='paginationItem' disabled={(currentPage === e)}>{e}</button>)
+          }
+        </div>
+      ) : (
+        ""
+      )}
 
       <div className="listInnerWrapper">
         {error ? (

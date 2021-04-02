@@ -89,24 +89,37 @@
 .filters, .pagination {
   margin-left: 2.5rem;
   margin-right: 2.5rem;
-  padding: 0 0 0 3rem;
+  padding: 0 3rem 0 3rem;
   display: flex;
 }
 .filters > .sectionHeader,
 .pagination > .sectionHeader {
   top: -0.75rem;
 }
-.filterItem, .paginationItem{
+.filterItem {
   padding: 0.5rem;
-  margin: 1.2rem 0.5rem ;
+  margin: 1.2rem 0.5rem;
 }
 
 
+.pagination {
+  padding-top: .6rem;
+  padding-bottom: .6rem;
+  flex-wrap: wrap;
+}
 .paginationItem {
+  padding: 0.5rem;
+  margin: .3rem 0.5rem;
   border: 1px solid #ccc;
+  background: #fff;
   border-radius: 0.3rem;
   transition: all .5s ease;
   cursor: pointer;
+}
+.paginationItem:disabled {
+  background: #ccc;
+  border: 1px solid #aaa;
+  pointer-events:none;
 }
 
 

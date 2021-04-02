@@ -25,6 +25,8 @@ export interface mainSliceType {
   nameInput: string;
   genderInput: string;
   statusInput: string;
+  pagesCount: number;
+  currentPage: number;
 }
 export interface responseType {
     results: itemType[]
