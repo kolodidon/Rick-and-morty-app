@@ -1,3 +1,5 @@
 export * from './List'
 export * from './Search'
 export * from './Item'
+export * from './Filters'
+export * from './Pagination'
