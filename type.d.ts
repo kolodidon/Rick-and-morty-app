@@ -27,7 +27,6 @@ export interface mainSliceType {
   statusInput: string;
   pagesCount: number;
   currentPage: number;
-  favorites: itemType[];
 }
 export interface responseType {
     results: itemType[]

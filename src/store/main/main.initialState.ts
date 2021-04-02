@@ -9,5 +9,4 @@ export const mainInitialState: mainSliceType = {
   statusInput: '',
   pagesCount: 0,
   currentPage: 1,
-  favorites: []
 };

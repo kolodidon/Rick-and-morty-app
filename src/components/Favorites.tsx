@@ -35,7 +35,7 @@ export const Favorites = () => {
                     : <h3>Ничего не добавлено в избранное</h3>
             }
             </div>
-            <NavLink to='/' className="searchButton favoritesButton toMainButton">На главную</NavLink>
+            <NavLink to='/' className="searchButton favoritesButton">На главную</NavLink>
         </div>
     )
 }
