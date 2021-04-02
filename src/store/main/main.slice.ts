@@ -38,7 +38,9 @@ export const mainSlice = createSlice({
 export const {
   actions: {
     setInputs: setInputsAC,
-    setCurrentPage: setCurrentPageAC
+    setCurrentPage: setCurrentPageAC,
+    addToFavorite: addToFavoriteAC,
+    deleteFromFavorite: deleteFromFavoriteAC
   },
 } = mainSlice;
 
@@ -52,3 +54,6 @@ export const statusInputSelector = (state: StateType) => state.main.statusInput;
 
 export const pagesCountSelector = (state: StateType) => state.main.pagesCount;
 export const currentPageSelector = (state: StateType) => state.main.currentPage;
+
+export const favoritesIdSelector = (state: StateType) => { return state.main.favorites.map((item) => item.id) };
+export const favoritesSelector = (state: StateType) => state.main.favorites;

@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
 import { setInputsAC } from "../store/main/main.slice"
+import { NavLink } from 'react-router-dom';
 
 export const Search = () => {
     let [nameInput, setNameInput] = React.useState('')
@@ -44,6 +45,7 @@ export const Search = () => {
                 </div>    
             </div>
             <button type='submit' className='searchButton' onClick={searchButtonOnClick}>Искать</button>
+            <NavLink to='/favorites' className="searchButton favoritesButton toMainButton">В избранное</NavLink>
         </div>
     )
 }
