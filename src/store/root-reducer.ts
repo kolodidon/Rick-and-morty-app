@@ -1,5 +1,11 @@
-import { mainSlice } from './main/main.slice';
+import { combineReducers } from "@reduxjs/toolkit";
 
-export const reducer = {
-  todos: mainSlice.reducer
-};
+import { mainSlice } from "./main/main.slice";
+
+const reducer = combineReducers({
+  main: mainSlice.reducer,
+});
+
+export type StateType = ReturnType<typeof reducer>;
+
+export default reducer

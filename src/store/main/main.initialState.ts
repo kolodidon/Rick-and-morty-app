@@ -1,3 +1,10 @@
-import { itemType } from '../../../type';
+import { mainSliceType } from "../../../type";
 
-export const mainInitialState: itemType[] = [];
+export const mainInitialState: mainSliceType = {
+  items: [],
+  isLoading: false,
+  error: "",
+  nameInput: '',
+  genderInput: '',
+  statusInput: '',
+};
