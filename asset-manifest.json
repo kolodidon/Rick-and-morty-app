@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/rick-and-morty-app/static/css/main.9c1773b3.chunk.css",
+    "main.js": "/rick-and-morty-app/static/js/main.e6c55a6f.chunk.js",
+    "main.js.map": "/rick-and-morty-app/static/js/main.e6c55a6f.chunk.js.map",
+    "runtime-main.js": "/rick-and-morty-app/static/js/runtime-main.0aaf7b42.js",
+    "runtime-main.js.map": "/rick-and-morty-app/static/js/runtime-main.0aaf7b42.js.map",
+    "static/js/2.774f9409.chunk.js": "/rick-and-morty-app/static/js/2.774f9409.chunk.js",
+    "static/js/2.774f9409.chunk.js.map": "/rick-and-morty-app/static/js/2.774f9409.chunk.js.map",
+    "static/js/3.fbc7a149.chunk.js": "/rick-and-morty-app/static/js/3.fbc7a149.chunk.js",
+    "static/js/3.fbc7a149.chunk.js.map": "/rick-and-morty-app/static/js/3.fbc7a149.chunk.js.map",
+    "index.html": "/rick-and-morty-app/index.html",
+    "static/css/main.9c1773b3.chunk.css.map": "/rick-and-morty-app/static/css/main.9c1773b3.chunk.css.map",
+    "static/js/2.774f9409.chunk.js.LICENSE.txt": "/rick-and-morty-app/static/js/2.774f9409.chunk.js.LICENSE.txt",
+    "static/media/Grey-star.22188a95.png": "/rick-and-morty-app/static/media/Grey-star.22188a95.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0aaf7b42.js",
+    "static/js/2.774f9409.chunk.js",
+    "static/css/main.9c1773b3.chunk.css",
+    "static/js/main.e6c55a6f.chunk.js"
+  ]
+}
