@@ -40,7 +40,8 @@ export const {
     setInputs: setInputsAC,
     setCurrentPage: setCurrentPageAC,
     addToFavorite: addToFavoriteAC,
-    deleteFromFavorite: deleteFromFavoriteAC
+    deleteFromFavorite: deleteFromFavoriteAC,
+    setFavoritesToState: setFavoritesToStateAC
   },
 } = mainSlice;
 
@@ -55,17 +56,5 @@ export const statusInputSelector = (state: StateType) => state.main.statusInput;
 export const pagesCountSelector = (state: StateType) => state.main.pagesCount;
 export const currentPageSelector = (state: StateType) => state.main.currentPage;
 
-export const favoritesIdSelector = (state: StateType) => { 
-    if (!localStorage.getItem('favorites')) {
-        return []
-    } else {
-        return JSON.parse(localStorage.favorites).map((item: any) => item.id) 
-    }
-};
-export const favoritesSelector = () => {
-    if (!localStorage.getItem('favorites')) {
-        return []
-    } else {
-        return JSON.parse(localStorage.favorites)
-    }
-};
+export const favoritesIdSelector = (state: StateType) => state.main.favorites.map((item: any) => item.id);
+export const favoritesSelector = (state: StateType) => state.main.favorites;

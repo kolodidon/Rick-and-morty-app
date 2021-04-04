@@ -13,6 +13,7 @@ import {
     statusInputSelector, 
     currentPageSelector,
     favoritesIdSelector,
+    favoritesSelector,
     FetchItemsThunk
 } from "../store/main/main.slice";
 

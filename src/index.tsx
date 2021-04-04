@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter  } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -9,14 +9,25 @@ import store from './store/store'
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <HashRouter>
       <Provider store={store}>
         <App />
       </Provider>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
+
+if(!localStorage.getItem('favorites')) {
+  localStorage.setItem('favorites', '[]')
+}
+
+window.addEventListener('storage', (event) => {
+  if (event.storageArea != localStorage) return;
+  if (event.key === 'favorites') {
+    window.location.reload()
+  }
+ });
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

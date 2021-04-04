@@ -14,17 +14,18 @@ export const mainReducer = {
         state.currentPage = action.payload;
     },
     addToFavorite: (state: mainSliceType, action: PayloadAction<itemType>) => {
-        if(!localStorage.getItem('favorites')) {
-            localStorage.setItem('favorites', '[]')
-        }
         let Arr = JSON.parse(localStorage.favorites)
         Arr.push(action.payload)
         localStorage.setItem('favorites', JSON.stringify(Arr))
+        state.favorites = Arr
+        
     },
     deleteFromFavorite: (state: mainSliceType, action: PayloadAction<number>) => {
-        if(!localStorage.getItem('favorites')) {
-            localStorage.setItem('favorites', '[]')
-        }
         let Arr = JSON.parse(localStorage.favorites).filter((item: itemType) => item.id !== action.payload)
-        localStorage.setItem('favorites', JSON.stringify(Arr))    }
+        localStorage.setItem('favorites', JSON.stringify(Arr))
+        state.favorites = Arr
+    },
+    setFavoritesToState: (state: mainSliceType, action: PayloadAction<itemType[]>) => {
+        action.payload ? state.favorites = action.payload : state.favorites = []
+    }
 };
