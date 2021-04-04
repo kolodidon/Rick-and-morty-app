@@ -1,5 +1,6 @@
 # Приложение на базе rickandmortyAPI
 Ссылка на API: https://rickandmortyapi.com/
+
 Ссылка на проект: https://kolodidon.github.io/rick-and-morty-app/#/
 
 ## Стак
